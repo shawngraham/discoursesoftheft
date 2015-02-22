@@ -32,15 +32,17 @@ I added 'stolen' to my stopword list. It simply was overpowering any other signa
 
 Eventually, I end up with a document-term matrix (which RStudio tells me is 47.4 mb in size):
 
-```#check size
+#check size
 dim(myDtm)```
 
 [1] 288510 134278 
 
 I remove sparse terms:
 
-```dtms <- removeSparseTerms(myDtm, 0.9999)
-dim(dtms)```
+```R
+dtms <- removeSparseTerms(myDtm, 0.9999)
+dim(dtms)
+```
 
 [1] 288510   5185
 
