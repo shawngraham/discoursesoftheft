@@ -12,11 +12,13 @@ I therefore framed my data as broadly as seemed prudent.
 3. Extracted geolocated tweets using the geojson.py function in the twarc/utilities folder. Uploaded these to [gist](https://gist.github.com/shawngraham/e7ce4758a314ebdf0176) to visualize that aspect of the materials.
 4. Extracted twitter ids using the ids.py function in the twarc/utilities folder. Since the twitter terms of service don't allow me to share the full tweets, one can use the ```twarc.py --hydrate``` on the list of ids to restore the full dataset. My twitter ids list is [here](/lootids.txt).
 
-I used R to do some exploratory visualizations of patterns of word use in these tweets. I used my [standard topic modeling script in R](http://hist3907b-winter2015.github.io/module4-holes/tm-CND.html), but set to read a modified version of the csv:
+I used R to do some exploratory visualizations of patterns of word use in these tweets. I used my [standard text analysis script in R](https://github.com/hist3907b-winter2015/module4-holes/blob/master/text-analysis-cnd.R) and my [standard topic modeling script in R](http://hist3907b-winter2015.github.io/module4-holes/tm-CND.html), but set both to read a modified version of the csv:
 
 ```documents <- read.csv("loot-tm.csv", col.names=c("id", "text"),
                       colClasses=rep("character", 2), sep=",", quote="") ```
-                
+    
+(nb, once you load that in RStudio, it becomes available to both scripts).
+
 Interestingly, it seems that the twitter search through the API searches in all languages. Applying an english stopword list is not a complete solution then.
 
 ## Preliminary Observations
@@ -28,7 +30,7 @@ Interestingly, it seems that the twitter search through the API searches in all 
 |banks	 |6220		 |5872     |
 
 
-I added 'stolen' to my stopword list. It simply was overpowering any other signals in this noise. I did some more data munging from a text analysis point of view using a modification of [my standard script](https://github.com/hist3907b-winter2015/module4-holes/blob/master/text-analysis-cnd.R).
+I added 'stolen' to my stopword list. It simply was overpowering any other signals in this noise. I did some more data munging from a text analysis point of view using a modification of [my standard text analysis script](https://github.com/hist3907b-winter2015/module4-holes/blob/master/text-analysis-cnd.R).
 
 Eventually, I end up with a document-term matrix (which RStudio tells me is 47.4 mb in size):
 
