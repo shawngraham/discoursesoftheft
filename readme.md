@@ -1,5 +1,7 @@
 #Exploring Discourses of Theft
 
+_this is an exploration of a dataset for my [HIST3907b class at Carleton University](https://github.com/hist3907b-winter2015/)_
+
 What are the discourses of theft on Twitter? Broadly, I am interested in the looting of antiquities, and how that plays out across twitter. On the other hand, I did not want to focus my search so narrowly that I only captured what 'professional' players were saying (though that in itself could be an interesting/valuable question to explore).
 
 I therefore framed my data as broadly as seemed prudent.
@@ -44,7 +46,7 @@ I remove sparse terms:
 
 ...which is more manageable, and I begin to look for some correlations in the terms:
 
-```findAssocs(dtms, "antiqu", corlimit=0.30)```
+> findAssocs(dtms, "antiqu", corlimit=0.30)
 
                antiqu
 
@@ -67,12 +69,12 @@ isi              0.32
 philanthropist   0.30
 
 
-```findAssocs(dtms, "canada", corlimit=0.33)```
+> findAssocs(dtms, "canada", corlimit=0.33)
 
 Evidently, when we speak of 'antiques', 'antiquities', etc on Twitter, we are doing so in a conversation about gathering, collecting, donations: a very museum-centred world. But then we have 'isi' which is likely ISIS. 
 
 
-```findAssocs(dtms, "isi", corlimit=0.33)```
+> findAssocs(dtms, "isi", corlimit=0.33)
             
               isi
 
@@ -88,6 +90,29 @@ sell          0.36
 
 What about that WSJ article that was making the rounds?
 
+> findAssocs(dtms, "wsj", corlimit=0.33)
+               
+               wsj
+
+dbfmonument   0.61
+men۪            0.61
+critk         0.60
+syria۪          0.59
+protect       0.48
+race          0.46
+pdb           0.45
+inclus        0.39
+meet          0.39
+secondlargest 0.39
+rspwbfhdb     0.37
+xpheidjnen    0.37
+rebuild       0.36
+
+We could do this hit-and-miss all night. Let's look at the most frequent terms now:
+
+![image](/freq-words)
+
+Something happening with a missing gold medal, in australia (?), thefts of bitcoins, thefts of cars and other vehicls, banks are in bad odour, thefts of .... girls? Perhaps that's a reference to the kidnappings in Africa by Boko Haram, which have largely slipped from the (Western) headlines. One could work through these keywords to see what other associations are present.
 
 ## Topic Model
 I fitted a topic model with 150 topics to this information. My standard script writes the output to csv files for further manipulation and so on (while I can do some things in R, sometimes it's just quicker all around to go back to a spreadsheet. The 'right' tool in a situation is the one you know how to use, yes?). 
