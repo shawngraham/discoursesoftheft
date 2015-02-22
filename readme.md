@@ -34,7 +34,8 @@ Eventually, I end up with a document-term matrix (which RStudio tells me is 47.4
 
 ```R
 #check size
-dim(myDtm)```
+dim(myDtm)
+```
 
 [1] 288510 134278 
 
@@ -97,7 +98,7 @@ rebuild        0.36
 ```
 We could do this hit-and-miss all night. Let's look at the most frequent terms now:
 
-![image](/freq-words)
+![image](/freq-words.png)
 
 Something happening with a missing gold medal, in australia (?), thefts of bitcoins, thefts of cars and other vehicls, banks are in bad odour, thefts of .... girls? Perhaps that's a reference to the kidnappings in Africa by Boko Haram, which have largely slipped from the (Western) headlines. One could work through these keywords to see what other associations are present.
 
