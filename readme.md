@@ -7,7 +7,7 @@ What are the discourses of theft on Twitter? Broadly, I am interested in the loo
 I therefore framed my data as broadly as seemed prudent.
 ## Getting the data
 
-1.  I first constructed my search terms on the Twitter advanced search page, and took note of how the search terms were framed in the URL. I can never remember ascii codes for spaces and so on, so this sorts it out for me when I pass it to the command line. I then used [Twarc](https://github.com/edsu/twarc): ```twarc.py --search looting OR looted OR looters OR illicit OR theft OR unexcavated OR nighthawking OR antiquities OR ransack OR stolen -"grand%20-theft" > loot.json``` . I had to add the 'no grand-theft' flag, otherwise I would've also captured the entire 'grand theft auto' twittersphere as well. The resulting json file is 885 mb. (What you _actually_ type: ``` twarc.py --search looting%20OR%20looted%20OR%20looters%20OR%20illicit%20OR%20theft%20OR%20unexcavated%20OR%20nighthawking%20OR%20antiquities%20OR%20ransack%20OR%20stolen%20-"grand%20-theft" > loot.json ``` )
+1.  I first constructed my search terms on the Twitter advanced search page, and took note of how the search terms were framed in the URL. I can never remember ascii codes for spaces and so on, so this sorts it out for me when I pass it to the command line. I then used [Twarc](https://github.com/edsu/twarc): ```twarc.py --search looting OR looted OR looters OR illicit OR theft OR unexcavated OR nighthawking OR antiquities OR ransack OR stolen -"grand%20-theft" > loot.json``` . I had to add the 'no grand-theft' flag, otherwise I would've also captured the entire 'grand theft auto' twittersphere as well. The resulting json file is 885 mb, and covers from February 13th 2015 to February 19th 2015. (What you _actually_ type: ``` twarc.py --search looting%20OR%20looted%20OR%20looters%20OR%20illicit%20OR%20theft%20OR%20unexcavated%20OR%20nighthawking%20OR%20antiquities%20OR%20ransack%20OR%20stolen%20-"grand%20-theft" > loot.json ``` )
 2. Converted loot.json to csv using the json2csv.py function in the twarc/utilities folder.
 3. Extracted geolocated tweets using the geojson.py function in the twarc/utilities folder. Uploaded these to [gist](https://gist.github.com/shawngraham/e7ce4758a314ebdf0176) to visualize that aspect of the materials.
 4. Extracted twitter ids using the ids.py function in the twarc/utilities folder. Since the twitter terms of service don't allow me to share the full tweets, one can use the ```twarc.py --hydrate``` on the list of ids to restore the full dataset. My twitter ids list is [here](/lootids.txt).
@@ -102,6 +102,8 @@ We could do this hit-and-miss all night. Let's look at the most frequent terms n
 
 Something happening with a missing gold medal, in australia (?), thefts of bitcoins, thefts of cars and other vehicls, banks are in bad odour, thefts of .... girls? Perhaps that's a reference to the kidnappings in Africa by Boko Haram, which have largely slipped from the (Western) headlines. One could work through these keywords to see what other associations are present.
 
+*It is at this point that your normal historical method would come to the fore*. Why these associations? What other materials support these observations? What *story* are they telling you?
+
 ## Topic Model
 I fitted a topic model with 150 topics to this information. My standard script writes the output to csv files for further manipulation and so on (while I can do some things in R, sometimes it's just quicker all around to go back to a spreadsheet. The 'right' tool in a situation is the one you know how to use, yes?). 
 
@@ -125,3 +127,7 @@ to make this image:
 ![image](/topics-sideways.png)
 
 Broadly then, there's a lot of structure. An obvious question is how much does this depend on my original search terms? I'm not sure how to approach that question at the moment, so let's leave it aside with a promise to come back to it. 
+
+Again, *It is at this point that your normal historical method would come to the fore*. Why these associations? What other materials support these observations? What *story* are they telling you? How do these topics intersect with sheer volume of tweets? With my standard script, you could develop a plot - a network graph, even - that shows not just *what* topics are connected to each other, but also, as a function of number of retweets and the number of followers a particular user has, the volume (as in shouts, noise) a particular discourse is having. There's a lot of data here. When we get to this point, we use our good historical sense to start telling the compelling story. 
+
+Data do not speak for themselves.
