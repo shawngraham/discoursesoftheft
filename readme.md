@@ -48,7 +48,8 @@ dim(dtms)
 
 ...which is more manageable, and I begin to look for some correlations in the terms:
 
-```findAssocs(dtms, "antiqu", corlimit=0.30)
+```R
+findAssocs(dtms, "antiqu", corlimit=0.30)
 
                antiqu
 fund             0.46
@@ -64,7 +65,8 @@ philanthropist   0.30
 
 Evidently, when we speak of 'antiques', 'antiquities', etc on Twitter, we are doing so in a conversation about gathering, collecting, donations: a very museum-centred world. But then we have 'isi' which is likely ISIS. 
 
-```findAssocs(dtms, "isi", corlimit=0.33)         
+```R
+findAssocs(dtms, "isi", corlimit=0.33)         
               isi
 dbfmake       0.44
 millions۪      0.44
@@ -75,7 +77,8 @@ sell          0.36
 
 What about that WSJ article that was making the rounds?
 
-```findAssocs(dtms, "wsj", corlimit=0.33)            
+```R
+findAssocs(dtms, "wsj", corlimit=0.33)            
                wsj
 dbfmonument    0.61
 men۪            0.61
