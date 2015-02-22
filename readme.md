@@ -32,6 +32,7 @@ I added 'stolen' to my stopword list. It simply was overpowering any other signa
 
 Eventually, I end up with a document-term matrix (which RStudio tells me is 47.4 mb in size):
 
+```R
 #check size
 dim(myDtm)```
 
