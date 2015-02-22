@@ -32,82 +32,63 @@ I added 'stolen' to my stopword list. It simply was overpowering any other signa
 
 Eventually, I end up with a document-term matrix (which RStudio tells me is 47.4 mb in size):
 
-```#check size```
-```dim(myDtm)```
+```#check size
+dim(myDtm)```
 
 [1] 288510 134278 
 
 I remove sparse terms:
 
-```dtms <- removeSparseTerms(myDtm, 0.9999)```
-```dim(dtms)```
+```dtms <- removeSparseTerms(myDtm, 0.9999)
+dim(dtms)```
 
 [1] 288510   5185
 
 ...which is more manageable, and I begin to look for some correlations in the terms:
 
-> findAssocs(dtms, "antiqu", corlimit=0.30)
+```findAssocs(dtms, "antiqu", corlimit=0.30)
 
                antiqu
-
 fund             0.46
-
 gather           0.39
-
 collect          0.37
-
 donat            0.36
-
 evid             0.35
-
 museum           0.35
-
 bbc              0.33
-
 isi              0.32
-
 philanthropist   0.30
-
-
-> findAssocs(dtms, "canada", corlimit=0.33)
+```
 
 Evidently, when we speak of 'antiques', 'antiquities', etc on Twitter, we are doing so in a conversation about gathering, collecting, donations: a very museum-centred world. But then we have 'isi' which is likely ISIS. 
 
-
-> findAssocs(dtms, "isi", corlimit=0.33)
-            
+```findAssocs(dtms, "isi", corlimit=0.33)         
               isi
-
 dbfmake       0.44
-
 millions۪      0.44
-
 alarabiyaeng  0.36
-
 artefact      0.36
-
 sell          0.36
+```
 
 What about that WSJ article that was making the rounds?
 
-> findAssocs(dtms, "wsj", corlimit=0.33)
-               
+```findAssocs(dtms, "wsj", corlimit=0.33)            
                wsj
-
-dbfmonument   0.61
+dbfmonument    0.61
 men۪            0.61
-critk         0.60
+critk          0.60
 syria۪          0.59
-protect       0.48
-race          0.46
-pdb           0.45
-inclus        0.39
-meet          0.39
-secondlargest 0.39
-rspwbfhdb     0.37
-xpheidjnen    0.37
-rebuild       0.36
-
+protect        0.48
+race           0.46
+pdb            0.45
+inclus         0.39
+meet           0.39
+secondlargest  0.39
+rspwbfhdb      0.37
+xpheidjnen     0.37
+rebuild        0.36
+```
 We could do this hit-and-miss all night. Let's look at the most frequent terms now:
 
 ![image](/freq-words)
