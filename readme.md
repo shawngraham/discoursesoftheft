@@ -1,6 +1,6 @@
 #Exploring Discourses of Theft
 
-_this is an exploration of a dataset for my [HIST3907b class at Carleton University](https://github.com/hist3907b-winter2015/)_
+_this is an exploration of a dataset for my [HIST3907b class at Carleton University](https://github.com/hist3907b-winter2015/), and also (in terms of research question, for my [HIST4805b seminar on the illicit antiquities trade](http://4805b.graeworks.net/)_
 
 What are the discourses of theft on Twitter? Broadly, I am interested in the looting of antiquities, and how that plays out across twitter. On the other hand, I did not want to focus my search so narrowly that I only captured what 'professional' players were saying (though that in itself could be an interesting/valuable question to explore).
 
